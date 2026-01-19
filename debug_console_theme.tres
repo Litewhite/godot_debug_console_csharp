@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://edxbej5orkdk"]
+
+[ext_resource type="FontFile" uid="uid://bofq1440528m3" path="res://addons/godot_debug_console_csharp/fonts/Hack-Regular.ttf" id="1_kcr0j"]
+
+[resource]
+default_font = ExtResource("1_kcr0j")
+default_font_size = 20

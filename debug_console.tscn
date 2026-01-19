@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://ce3mc7nu03jm2"]
+
+[ext_resource type="Theme" uid="uid://edxbej5orkdk" path="res://addons/godot_debug_console_csharp/debug_console_theme.tres" id="1_gh4md"]
+[ext_resource type="Script" uid="uid://bmcs44bqsrbs6" path="res://addons/godot_debug_console_csharp/scripts/DebugConsoleController.cs" id="2_i76tt"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_uhged"]
+number_color = Color(0.48981798, 0.7818196, 0.4072749, 1)
+symbol_color = Color(1, 1, 1, 1)
+function_color = Color(0.23651847, 0.45994824, 1, 1)
+member_variable_color = Color(1, 1, 1, 1)
+
+[node name="DebugConsole" type="Control" unique_id=257230893]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gh4md")
+script = ExtResource("2_i76tt")
+
+[node name="Bottom" type="Control" parent="." unique_id=1009477789]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BottomLineOffset" type="Control" parent="Bottom" unique_id=1401459071]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -34.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ResultViewer" type="TextEdit" parent="Bottom/BottomLineOffset" unique_id=220190097]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -400.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_readonly_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/background_color = Color(0, 0, 0, 0.8352941)
+theme_override_constants/caret_width = 2
+text = ">>> DebugConsole
+"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+drag_and_drop_selection_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+wrap_mode = 1
+autowrap_mode = 1
+tab_input_mode = false
+virtual_keyboard_enabled = false
+virtual_keyboard_show_on_focus = false
+syntax_highlighter = SubResource("CodeHighlighter_uhged")
+highlight_current_line = true
+
+[node name="CommandInput" type="LineEdit" parent="." unique_id=1787529668]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/caret_width = 2
+keep_editing_on_text_submit = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+clear_button_enabled = true
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+virtual_keyboard_show_on_focus = false
+
+[node name="ColorRect" type="ColorRect" parent="CommandInput" unique_id=47893459]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="text_submitted" from="CommandInput" to="." method="_OnCommandInputTextSubmitted"]
