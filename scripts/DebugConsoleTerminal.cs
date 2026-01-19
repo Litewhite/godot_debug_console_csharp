@@ -111,7 +111,7 @@ public class DebugConsoleTerminal
 		});
 
 		// #Player -> ((dynamic)D.SCENE.GetNode("Player"))
-		string nodePattern = @"#([A-Za-z0-9_\/]+)";
+		string nodePattern = @"#([A-Za-z0-9_\/@]+)";
 		command = Regex.Replace(command, nodePattern, "((dynamic)D.SCENE.GetNode(\"$1\"))");
 
 		return command;
@@ -121,7 +121,7 @@ public class DebugConsoleTerminal
 	{
 		nodePath = "";
 		postFix = "";
-		var lastMatch = Regex.Matches(command, @"#([A-Za-z0-9_\/]+)").LastOrDefault();
+		var lastMatch = Regex.Matches(command, @"#([A-Za-z0-9_\/@]+)").LastOrDefault();
 		if (lastMatch != null)
 		{
 			nodePath = lastMatch.Groups[1].Value;
